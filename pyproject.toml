@@ -1,0 +1,18 @@
+[project]
+name = "parqcast-lambda-workspace"
+version = "0.1.0"
+description = "AWS Lambda handler and S3 transport for parqcast"
+authors = [
+    { name = "DataStruct s.r.o.", email = "info@datastruct.tech" },
+]
+requires-python = "==3.12.3"
+license = "Apache-2.0"
+
+[tool.uv.workspace]
+members = [
+    "packages/parqcast-lambda",
+    "packages/parqcast-transport-s3",
+]
+
+[tool.uv.sources]
+parqcast-transport-s3 = { workspace = true }

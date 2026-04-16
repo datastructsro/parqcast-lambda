@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+*.pyc
+*.egg-info/
+dist/
+build/
+.aws-sam/
+.claude/
+.env
+.env.local

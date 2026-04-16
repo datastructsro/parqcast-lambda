@@ -1,0 +1,6 @@
+{
+  "namespace": "demo",
+  "table": "sensor_readings",
+  "segments": 5,
+  "records_per_segment": 10
+}

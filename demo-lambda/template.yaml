@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Demo Lambda that uploads segmented sensor data to the parqcast-server.
+  Run locally with: sam build && sam local invoke
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: python3.12
+
+Resources:
+  ParqcastDemoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.lambda_handler
+      CodeUri: src/
+      MemorySize: 256
+      Environment:
+        Variables:
+          PARQCAST_SERVER_URL: "http://host.docker.internal:8420"
+          PARQCAST_API_KEY: "pqt-demo-key-2026-do-not-use-in-prod"
+          NAMESPACE: "demo"
+          TABLE: "sensor_readings"
+          SEGMENTS: "5"
+          RECORDS_PER_SEGMENT: "10"
